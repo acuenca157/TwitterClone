@@ -1,0 +1,41 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.TwitterClone" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryVariant">@color/primaryDarkColor</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/secondaryColor</item>
+        <item name="colorSecondaryVariant">@color/secondaryDarkColor</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Theme.TwitterClone.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.TwitterClone.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.TwitterClone.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="inputBox" parent="Base.Widget.MaterialComponents.TextInputLayout">
+        <item name="background">@android:color/transparent</item>
+        <item name="fontFamily">@font/poppins_regular</item>
+        <item name="maxLines">1</item>
+        <item name="android:paddingLeft">17dp</item>
+        <item name="android:paddingRight">15dp</item>
+        <item name="android:paddingBottom">15dp</item>
+        <item name="android:textCursorDrawable">@drawable/cursor_color</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="TweetMain" parent="Theme.MaterialComponents.DayNight">
+        <item name="backgroundColor">@color/secondaryTextColor</item>
+        <item name="elevation">5dp</item>
+    </style>
+</resources>

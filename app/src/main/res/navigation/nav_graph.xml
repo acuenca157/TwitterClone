@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/FirstFragment">
+
+    <fragment
+        android:id="@+id/FirstFragment"
+        android:name="org.izv.di.acl.twitterclone.view.activity.fragment.FirstFragment"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/fragment_first">
+
+        <action
+            android:id="@+id/action_FirstFragment_to_SecondFragment"
+            app:destination="@id/SecondFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_tweetsFragment"
+            app:destination="@id/tweetsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/SecondFragment"
+        android:name="org.izv.di.acl.twitterclone.view.activity.fragment.SecondFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_second">
+
+        <action
+            android:id="@+id/action_SecondFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/tweetsFragment"
+        android:name="org.izv.di.acl.twitterclone.view.activity.fragment.TweetsFragment"
+        android:label="fragment_tweets"
+        tools:layout="@layout/fragment_tweets" >
+        <action
+            android:id="@+id/action_tweetsFragment_to_createTweet"
+            app:destination="@id/createTweet" />
+    </fragment>
+    <fragment
+        android:id="@+id/createTweet"
+        android:name="org.izv.di.acl.twitterclone.view.activity.fragment.CreateTweet"
+        android:label="fragment_create_tweet"
+        tools:layout="@layout/fragment_create_tweet" >
+        <action
+            android:id="@+id/action_createTweet_to_tweetsFragment"
+            app:destination="@id/tweetsFragment" />
+    </fragment>
+</navigation>
