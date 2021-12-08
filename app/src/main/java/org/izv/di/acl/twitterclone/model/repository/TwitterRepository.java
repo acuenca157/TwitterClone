@@ -25,6 +25,7 @@ public class TwitterRepository {
     private MutableLiveData<Integer> liveUserCountResult;
     private MutableLiveData<User> liveUserSearchResult;
     private MutableLiveData<Long> liveInsertTweetResult;
+    private MutableLiveData<Integer> liveUpdatedTweetResult;
 
     private SharedPreferences preferences;
 
@@ -38,6 +39,7 @@ public class TwitterRepository {
         liveUserCountResult = new MutableLiveData<>();
         liveUserSearchResult = new MutableLiveData<>();
         liveInsertTweetResult = new MutableLiveData<>();
+        liveUpdatedTweetResult = new MutableLiveData<>();
 
     }
     public void insertUser(User user) {
@@ -58,8 +60,11 @@ public class TwitterRepository {
         return dao.updateUser(user);
     }
 
-    public int updateTweet(Tweet tweet) {
-        return dao.updateTweet(tweet);
+    public void updateTweet(Tweet tweet) {
+        Runnable r = () -> {
+            liveUpdatedTweetResult.postValue(dao.updateTweet(tweet));
+        };
+        new Thread(r).start();
     }
 
     public int deleteUser(User user) {
@@ -106,5 +111,9 @@ public class TwitterRepository {
 
     public MutableLiveData<Long> getLiveInsertTweetResult() {
         return liveInsertTweetResult;
+    }
+
+    public MutableLiveData<Integer> getLiveUpdatedTweetResult() {
+        return liveUpdatedTweetResult;
     }
 }

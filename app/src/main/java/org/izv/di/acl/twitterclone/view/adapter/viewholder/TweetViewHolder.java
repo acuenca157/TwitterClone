@@ -12,7 +12,7 @@ import org.izv.di.acl.twitterclone.model.entity.Tweet;
 
 public class TweetViewHolder extends RecyclerView.ViewHolder {
     public TextView tvUsername, tvDate, tvDesc;
-    public ImageView ivUserPic, ivImageDesc;
+    public ImageView ivUserPic, ivImageDesc, ivEdit;
     public Tweet tweet;
 
     public TweetViewHolder(@NonNull View itemView){
@@ -23,6 +23,7 @@ public class TweetViewHolder extends RecyclerView.ViewHolder {
 
         ivUserPic = itemView.findViewById(R.id.ivUserPic);
         ivImageDesc = itemView.findViewById(R.id.ivImageDesc);
+        ivEdit = itemView.findViewById(R.id.ivOptions);
 
     }
 }

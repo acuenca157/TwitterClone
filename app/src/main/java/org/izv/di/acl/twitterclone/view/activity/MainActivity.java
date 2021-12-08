@@ -18,6 +18,7 @@ import com.bumptech.glide.Glide;
 
 import org.izv.di.acl.twitterclone.R;
 import org.izv.di.acl.twitterclone.databinding.ActivityMainBinding;
+import org.izv.di.acl.twitterclone.model.entity.Tweet;
 import org.izv.di.acl.twitterclone.model.entity.User;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -25,6 +26,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class MainActivity extends AppCompatActivity {
 
     private static User user;
+    private static Tweet actualTweet;
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
 
@@ -90,5 +92,13 @@ public class MainActivity extends AppCompatActivity {
 
     public static void setUser(User user) {
         MainActivity.user = user;
+    }
+
+    public static Tweet getActualTweet() {
+        return actualTweet;
+    }
+
+    public static void setActualTweet(Tweet actualTweet) {
+        MainActivity.actualTweet = actualTweet;
     }
 }

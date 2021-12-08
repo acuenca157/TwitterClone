@@ -24,8 +24,8 @@ public class TweetViewModel extends AndroidViewModel {
         repository.insertTweet(tweet);
     }
 
-    public int updateTweet(Tweet tweet) {
-        return repository.updateTweet(tweet);
+    public void updateTweet(Tweet tweet) {
+        repository.updateTweet(tweet);
     }
 
     public LiveData<List<UserTweet>> getAllTweets() {
@@ -34,5 +34,9 @@ public class TweetViewModel extends AndroidViewModel {
 
     public MutableLiveData<Long> getLiveInsertTweetResult() {
         return repository.getLiveInsertTweetResult();
+    }
+
+    public MutableLiveData<Integer> getLiveUpdatedTweetResult() {
+        return repository.getLiveUpdatedTweetResult();
     }
 }

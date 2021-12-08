@@ -59,11 +59,11 @@ public class TweetsFragment extends Fragment {
         rvTweets.setLayoutManager(new LinearLayoutManager(this.getContext()));
 
         TweetViewModel tvm = new ViewModelProvider(this).get(TweetViewModel.class);
-        TweetAdapter tweetAdapter = new TweetAdapter(this.getContext());
+        TweetAdapter tweetAdapter = new TweetAdapter(this.getContext(), user.id);
 
         rvTweets.setAdapter(tweetAdapter);
         LiveData<List<UserTweet>> listaUserTweet = tvm.getAllTweets();
-        listaUserTweet.observe(this, userTweets -> {
+        listaUserTweet.observe(this.getViewLifecycleOwner(), userTweets -> {
             tweetAdapter.setTweetList(userTweets);
         });
 

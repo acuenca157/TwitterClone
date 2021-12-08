@@ -1,12 +1,14 @@
 package org.izv.di.acl.twitterclone.view.adapter;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -22,9 +24,11 @@ import java.util.List;
 public class TweetAdapter extends RecyclerView.Adapter<TweetViewHolder> {
     private List<UserTweet> tweetList;
     private Context context;
+    private long userId;
 
-    public TweetAdapter(Context ctx){
+    public TweetAdapter(Context ctx, long userId){
         this.context = ctx;
+        this.userId = userId;
     }
 
     @NonNull
@@ -48,6 +52,17 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetViewHolder> {
             Glide.with(this.context).load(user.urlUserPic).into(holder.ivUserPic);
         }catch (Exception e){
             Log.v("xyzyx", "Amsiedad");
+        }
+
+        if (holder.tweet.idUser == userId){
+            holder.ivEdit.setVisibility(View.VISIBLE);
+            holder.ivEdit.setOnClickListener((View v) -> {
+                Bundle bundle = new Bundle();
+                bundle.putParcelable("tweet", tweet);
+                Navigation.findNavController(holder.itemView).navigate(R.id.action_tweetsFragment_to_editTweet, bundle);
+            });
+        }else{
+            holder.ivEdit.setVisibility(View.GONE);
         }
 
     }

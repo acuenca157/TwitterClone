@@ -10,6 +10,7 @@
         <entry key="..\:/Users/KuenKa/AndroidStudioProjects/TwitterClone/app/src/main/res/drawable/ic_launcher_background.xml" value="0.22135416666666666" />
         <entry key="..\:/Users/KuenKa/AndroidStudioProjects/TwitterClone/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/KuenKa/AndroidStudioProjects/TwitterClone/app/src/main/res/layout/fragment_create_tweet.xml" value="0.33" />
+        <entry key="..\:/Users/KuenKa/AndroidStudioProjects/TwitterClone/app/src/main/res/layout/fragment_edit_tweet.xml" value="0.5" />
         <entry key="..\:/Users/KuenKa/AndroidStudioProjects/TwitterClone/app/src/main/res/layout/fragment_first.xml" value="0.33" />
         <entry key="..\:/Users/KuenKa/AndroidStudioProjects/TwitterClone/app/src/main/res/layout/fragment_second.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/KuenKa/AndroidStudioProjects/TwitterClone/app/src/main/res/layout/fragment_tweets.xml" value="0.33" />

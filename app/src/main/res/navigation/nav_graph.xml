@@ -36,6 +36,9 @@
         <action
             android:id="@+id/action_tweetsFragment_to_createTweet"
             app:destination="@id/createTweet" />
+        <action
+            android:id="@+id/action_tweetsFragment_to_editTweet"
+            app:destination="@id/editTweet" />
     </fragment>
     <fragment
         android:id="@+id/createTweet"
@@ -45,5 +48,17 @@
         <action
             android:id="@+id/action_createTweet_to_tweetsFragment"
             app:destination="@id/tweetsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editTweet"
+        android:name="org.izv.di.acl.twitterclone.view.activity.fragment.EditTweet"
+        android:label="fragment_edit_tweet"
+        tools:layout="@layout/fragment_edit_tweet" >
+        <action
+            android:id="@+id/action_editTweet_to_tweetsFragment"
+            app:destination="@id/tweetsFragment" />
+        <argument
+            android:name="tweet"
+            app:argType="org.izv.di.acl.twitterclone.model.entity.Tweet" />
     </fragment>
 </navigation>
