@@ -36,4 +36,11 @@
     <string name="tweet_options">Tweet Options</string>
     <string name="placeholder_text">PlaceHolder Text</string>
     <string name="image_banner">Image Banner</string>
+    <string name="user_and_pass_dont_match">User and password does not match.</string>
+    <string name="all_fileds_must_be_completed">All the fields must be completed.</string>
+    <string name="error">Error</string>
+    <string name="not_name_avalible">Username not avalible, try with another.</string>
+    <string name="pass_confirm_not_match">The Passwords does not match, write it again.</string>
+    <string name="not_tweet_updated">The Tweet has not been Updated, try again.</string>
+    <string name="can_not_create_tweet">We couldn\'t create the Tweet. Try again later.</string>
 </resources>

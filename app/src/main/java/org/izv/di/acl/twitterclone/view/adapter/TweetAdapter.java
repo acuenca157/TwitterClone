@@ -31,12 +31,12 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetViewHolder> {
     private List<UserTweet> tweetList;
     private Context context;
     private long idUser;
-    private boolean userClickable;
+    private boolean fromMainMenu;
 
-    public TweetAdapter(Context ctx, long user, boolean userClickable){
+    public TweetAdapter(Context ctx, long user, boolean fromMainMenu){
         this.context = ctx;
         this.idUser = user;
-        this.userClickable = userClickable;
+        this.fromMainMenu = fromMainMenu;
     }
 
     @NonNull
@@ -83,13 +83,16 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetViewHolder> {
             holder.ivEdit.setOnClickListener((View v) -> {
                 Bundle bundle = new Bundle();
                 bundle.putParcelable("tweet", tweet);
-                Navigation.findNavController(holder.itemView).navigate(R.id.action_tweetsFragment_to_editTweet, bundle);
+                if (fromMainMenu)
+                    Navigation.findNavController(holder.itemView).navigate(R.id.action_tweetsFragment_to_editTweet, bundle);
+                else
+                    Navigation.findNavController(holder.itemView).navigate(R.id.action_profileFragment_to_editTweet, bundle);
             });
         }else{
             holder.ivEdit.setVisibility(View.GONE);
         }
 
-        if (userClickable) {
+        if (fromMainMenu) {
             holder.ivUserPic.setOnClickListener((View v) -> {
                 Bundle bundle = new Bundle();
                 bundle.putParcelable("searchUser", user);

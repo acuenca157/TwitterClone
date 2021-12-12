@@ -58,6 +58,7 @@ public class EditTweet extends Fragment {
         });
 
         ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        ((MainActivity) getActivity()).toggleUserOption(false);
     }
 
     private void editTweet() {
@@ -82,11 +83,11 @@ public class EditTweet extends Fragment {
         tvm = new ViewModelProvider(this).get(TweetViewModel.class);
         tvm.getLiveUpdatedTweetResult().observe(this.getViewLifecycleOwner(), res -> {
             if (res > 0){
-                Log.v("xyzyx", "Se ha creado el tweet " + res);
+                Log.v("xyzyx", "Se ha editado el tweet " + res);
                 NavHostFragment.findNavController(this).navigate(R.id.action_editTweet_to_tweetsFragment);
             }
             else {
-                alert("Error", "No se ha podido actualizar");
+                alert(getResources().getString(R.string.error), getResources().getString(R.string.not_tweet_updated));
                 Log.v("xyzyx", "Algo ha salido mal creando el tweet");
             }
         });

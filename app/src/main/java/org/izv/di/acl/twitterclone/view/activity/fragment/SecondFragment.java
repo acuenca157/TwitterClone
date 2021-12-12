@@ -46,7 +46,7 @@ public class SecondFragment extends Fragment {
         Button btnRegister = binding.btnAction;
         btnRegister.setOnClickListener((View v) -> {
             if (etUsername.getText().toString().isEmpty() || etPassword.getText().toString().isEmpty() || etConfirmPassword.getText().toString().isEmpty()){
-                alert("Error", "All the fields must be completed.");
+                alert(getResources().getString(R.string.error), getResources().getString(R.string.all_fileds_must_be_completed));
                 return;
             }
             User user = getUser();
@@ -76,7 +76,7 @@ public class SecondFragment extends Fragment {
             user.urlUserBanner = "https://th.bing.com/th/id/R.0a2236193afacc014d1099da17fa4eba?rik=JDchHCr12t7ANQ&pid=ImgRaw&r=0";
             return user;
         } else {
-            alert("Error", "No coinciden usuario y contraseña");
+            alert(getResources().getString(R.string.error), getResources().getString(R.string.pass_confirm_not_match));
             return null;
         }
     }
@@ -98,7 +98,7 @@ public class SecondFragment extends Fragment {
                 Log.v("xyzyx", "Usuario " + id + " creado con exito");
             }
             else {
-                alert("Error", "No se ha podido crear el usuario, prueba con otro nombre de usuario");
+                alert(getResources().getString(R.string.error), getResources().getString(R.string.not_name_avalible));
                 Log.v("xyzyx", "Algo ha salido mal creando al usuario");
             }
         });

@@ -74,6 +74,8 @@ public class CreateTweet extends Fragment {
         getViewModel();
         setCreateClickListener();
         ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        ((MainActivity) getActivity()).toggleUserOption(false);
+
     }
 
     @Override
@@ -113,7 +115,7 @@ public class CreateTweet extends Fragment {
                 NavHostFragment.findNavController(this).navigate(R.id.action_createTweet_to_tweetsFragment);
             }
             else {
-                alert("Error", "No se ha podido crear el tweet");
+                alert(getResources().getString(R.string.error), getResources().getString(R.string.can_not_create_tweet));
                 Log.v("xyzyx", "Algo ha salido mal creando el tweet");
             }
         });

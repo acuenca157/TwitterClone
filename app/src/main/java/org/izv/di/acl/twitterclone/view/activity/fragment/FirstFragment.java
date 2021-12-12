@@ -77,7 +77,7 @@ public class FirstFragment extends Fragment {
                 NavHostFragment.findNavController(this).navigate(R.id.action_FirstFragment_to_tweetsFragment);
             }
             else
-                alert("Error", "User and password does not match.");
+                alert(getResources().getString(R.string.error), getResources().getString(R.string.user_and_pass_dont_match));
 
         });
     }

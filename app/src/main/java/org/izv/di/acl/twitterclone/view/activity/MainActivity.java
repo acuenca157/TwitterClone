@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private static Tweet actualTweet;
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
+    private CircleImageView profileMenuItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +36,6 @@ public class MainActivity extends AppCompatActivity {
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
-        initialize();
     }
 
     public void createTopbar(){
@@ -49,7 +48,11 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
     }
 
-    private void initialize() {
+    public void toggleUserOption(boolean status){
+        if (status)
+            profileMenuItem.setVisibility(View.VISIBLE);
+        else
+            profileMenuItem.setVisibility(View.GONE);
     }
 
     @Override
@@ -63,6 +66,8 @@ public class MainActivity extends AppCompatActivity {
         CircleImageView profileImage = view.findViewById(R.id.toolbar_profile_image);
 
         Glide.with(profileImage).load(user.urlUserPic).into(profileImage);
+
+        profileMenuItem = profileImage;
 
         profileImage.setOnClickListener((View v) -> {
             Bundle bundle = new Bundle();

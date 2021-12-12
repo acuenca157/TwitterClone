@@ -65,6 +65,7 @@ public class TweetsFragment extends Fragment {
             tweetAdapter.setTweetList(userTweets);
         });
         ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        ((MainActivity) getActivity()).toggleUserOption(true);
     }
 
     @Override
