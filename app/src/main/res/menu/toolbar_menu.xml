@@ -5,6 +5,6 @@
         android:title="Menu Two"
         android:id="@+id/menuprofile"
         app:showAsAction="always"
-        app:actionLayout="@layout/profile_menu_layout"></item>
+        app:actionLayout="@layout/profile_menu_layout" />
 
 </menu>

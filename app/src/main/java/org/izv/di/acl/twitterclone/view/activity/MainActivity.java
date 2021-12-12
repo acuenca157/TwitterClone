@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -37,10 +36,6 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        /*NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-        appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);^*/
-
         initialize();
     }
 
@@ -48,10 +43,13 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setVisibility(View.VISIBLE);
         setSupportActionBar(toolbar);
+
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+        appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
+        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
     }
 
     private void initialize() {
-
     }
 
     @Override
@@ -67,7 +65,10 @@ public class MainActivity extends AppCompatActivity {
         Glide.with(profileImage).load(user.urlUserPic).into(profileImage);
 
         profileImage.setOnClickListener((View v) -> {
-            Toast.makeText(MainActivity.this, "Profile Clicked", Toast.LENGTH_SHORT).show();
+            Bundle bundle = new Bundle();
+            bundle.putParcelable("searchUser", user);
+            Navigation.findNavController(MainActivity.this, R.id.nav_host_fragment_content_main).navigate(R.id.action_tweetsFragment_to_profileFragment, bundle);
+            //Toast.makeText(MainActivity.this, "Profile Clicked", Toast.LENGTH_SHORT).show();
         });
 
         return true;

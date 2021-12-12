@@ -34,7 +34,7 @@ public interface TweeterDao {
     @Delete
     int deleteTweet(Tweet tweet);
 
-    @Query("SELECT t.*, u.id user_id, u.username user_username, u.urlUserPic user_urlUserPic FROM tweets t JOIN users u ON t.idUser = u.id ORDER BY t.id DESC")
+    @Query("SELECT t.*, u.id user_id, u.username user_username, u.urlUserPic user_urlUserPic, u.urlUserBanner user_urlUserBanner, u.description user_description FROM tweets t JOIN users u ON t.idUser = u.id ORDER BY t.id DESC")
     LiveData<List<UserTweet>> getAllTweets();
 
     /*@Query("SELECT COUNT(id) FROM users WHERE username = :username AND password = :pass")
@@ -42,4 +42,7 @@ public interface TweeterDao {
 
     @Query("SELECT * FROM users WHERE username = :username AND password = :pass")
     User getUser(String username, String pass);
+
+    @Query("SELECT t.*, u.id user_id, u.username user_username, u.urlUserPic user_urlUserPic, u.urlUserBanner user_urlUserBanner, u.description user_description FROM tweets t JOIN users u ON t.idUser = u.id WHERE t.idUser = :userid ORDER BY t.id DESC")
+    LiveData<List<UserTweet>> getTweetsFromUser(long userid);
 }

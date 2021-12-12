@@ -71,8 +71,9 @@ public class SecondFragment extends Fragment {
             User user = new User();
             user.username = username;
             user.password = password;
-            user.description = "Hello there! I'm usign Twitter!";
+            user.description = "Hello there! I'm using Twitter!";
             user.urlUserPic = "https://www.enriquedans.com/wp-content/uploads/2017/12/Twitter-default-avatar-2017.jpg";
+            user.urlUserBanner = "https://th.bing.com/th/id/R.0a2236193afacc014d1099da17fa4eba?rik=JDchHCr12t7ANQ&pid=ImgRaw&r=0";
             return user;
         } else {
             alert("Error", "No coinciden usuario y contraseña");

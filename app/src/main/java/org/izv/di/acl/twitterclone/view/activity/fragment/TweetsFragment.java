@@ -5,7 +5,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -30,7 +29,6 @@ public class TweetsFragment extends Fragment {
     private @NonNull FragmentTweetsBinding binding;
 
     private User user;
-    TextView tvUsername;
 
     @Override
     public View onCreateView(
@@ -59,14 +57,14 @@ public class TweetsFragment extends Fragment {
         rvTweets.setLayoutManager(new LinearLayoutManager(this.getContext()));
 
         TweetViewModel tvm = new ViewModelProvider(this).get(TweetViewModel.class);
-        TweetAdapter tweetAdapter = new TweetAdapter(this.getContext(), user.id);
+        TweetAdapter tweetAdapter = new TweetAdapter(this.getContext(), user.id, true);
 
         rvTweets.setAdapter(tweetAdapter);
         LiveData<List<UserTweet>> listaUserTweet = tvm.getAllTweets();
         listaUserTweet.observe(this.getViewLifecycleOwner(), userTweets -> {
             tweetAdapter.setTweetList(userTweets);
         });
-
+        ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
     }
 
     @Override

@@ -25,6 +25,10 @@ public class UserViewModel extends AndroidViewModel {
         repository.getUserById(username, pass);
     }
 
+    public void updateUser(User user) {
+        repository.updateUser(user);
+    }
+
     public MutableLiveData<Long> getLiveInsertUserResult() {
         return repository.getLiveInsertUserResult();
     }
@@ -35,5 +39,9 @@ public class UserViewModel extends AndroidViewModel {
 
     public MutableLiveData<User> getLiveUserSearchResult() {
         return repository.getLiveUserSearchResult();
+    }
+
+    public MutableLiveData<Integer> getLiveUpdatedUserResult() {
+        return repository.getLiveUpdatedUserResult();
     }
 }

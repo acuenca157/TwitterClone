@@ -26,6 +26,7 @@ public class TwitterRepository {
     private MutableLiveData<User> liveUserSearchResult;
     private MutableLiveData<Long> liveInsertTweetResult;
     private MutableLiveData<Integer> liveUpdatedTweetResult;
+    private MutableLiveData<Integer> liveUpdatedUserResult;
 
     private SharedPreferences preferences;
 
@@ -40,6 +41,7 @@ public class TwitterRepository {
         liveUserSearchResult = new MutableLiveData<>();
         liveInsertTweetResult = new MutableLiveData<>();
         liveUpdatedTweetResult = new MutableLiveData<>();
+        liveUpdatedUserResult = new MutableLiveData<>();
 
     }
     public void insertUser(User user) {
@@ -56,8 +58,11 @@ public class TwitterRepository {
         new Thread(r).start();
     }
 
-    public int updateUser(User user) {
-        return dao.updateUser(user);
+    public void updateUser(User user) {
+        Runnable r = () -> {
+            liveUpdatedUserResult.postValue(dao.updateUser(user));
+        };
+        new Thread(r).start();
     }
 
     public void updateTweet(Tweet tweet) {
@@ -79,12 +84,9 @@ public class TwitterRepository {
         return dao.getAllTweets();
     }
 
-    /*public void checkUser(String username, String pass) {
-        Runnable r = () -> {
-            liveUserCountResult.postValue(dao.checkUser(username, pass));
-        };
-        new Thread(r).start();
-    }*/
+    public LiveData<List<UserTweet>> getTweetsFromUser(long userid) {
+        return dao.getTweetsFromUser(userid);
+    }
 
     public void getUserById(String username, String pass) {
         Runnable r = () -> {
@@ -115,5 +117,9 @@ public class TwitterRepository {
 
     public MutableLiveData<Integer> getLiveUpdatedTweetResult() {
         return liveUpdatedTweetResult;
+    }
+
+    public MutableLiveData<Integer> getLiveUpdatedUserResult() {
+        return liveUpdatedUserResult;
     }
 }

@@ -18,6 +18,7 @@ import com.bumptech.glide.Glide;
 import org.izv.di.acl.twitterclone.R;
 import org.izv.di.acl.twitterclone.databinding.FragmentEditTweetBinding;
 import org.izv.di.acl.twitterclone.model.entity.Tweet;
+import org.izv.di.acl.twitterclone.view.activity.MainActivity;
 import org.izv.di.acl.twitterclone.viewmodel.TweetViewModel;
 
 public class EditTweet extends Fragment {
@@ -55,6 +56,8 @@ public class EditTweet extends Fragment {
         binding.btnCreate.setOnClickListener((View v)->{
             editTweet();
         });
+
+        ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     private void editTweet() {

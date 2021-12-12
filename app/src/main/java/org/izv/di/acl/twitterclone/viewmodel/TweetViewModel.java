@@ -32,6 +32,10 @@ public class TweetViewModel extends AndroidViewModel {
         return repository.getAllTweets();
     }
 
+    public LiveData<List<UserTweet>> getTweetsFromUser(long userid) {
+        return repository.getTweetsFromUser(userid);
+    }
+
     public MutableLiveData<Long> getLiveInsertTweetResult() {
         return repository.getLiveInsertTweetResult();
     }

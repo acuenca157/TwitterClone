@@ -31,20 +31,23 @@
     <fragment
         android:id="@+id/tweetsFragment"
         android:name="org.izv.di.acl.twitterclone.view.activity.fragment.TweetsFragment"
-        android:label="fragment_tweets"
-        tools:layout="@layout/fragment_tweets" >
+        android:label="@string/Twitter"
+        tools:layout="@layout/fragment_tweets">
         <action
             android:id="@+id/action_tweetsFragment_to_createTweet"
             app:destination="@id/createTweet" />
         <action
             android:id="@+id/action_tweetsFragment_to_editTweet"
             app:destination="@id/editTweet" />
+        <action
+            android:id="@+id/action_tweetsFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/createTweet"
         android:name="org.izv.di.acl.twitterclone.view.activity.fragment.CreateTweet"
-        android:label="fragment_create_tweet"
-        tools:layout="@layout/fragment_create_tweet" >
+        android:label="@string/CreateTweet"
+        tools:layout="@layout/fragment_create_tweet">
         <action
             android:id="@+id/action_createTweet_to_tweetsFragment"
             app:destination="@id/tweetsFragment" />
@@ -52,13 +55,22 @@
     <fragment
         android:id="@+id/editTweet"
         android:name="org.izv.di.acl.twitterclone.view.activity.fragment.EditTweet"
-        android:label="fragment_edit_tweet"
-        tools:layout="@layout/fragment_edit_tweet" >
+        android:label="@string/EditTweet"
+        tools:layout="@layout/fragment_edit_tweet">
         <action
             android:id="@+id/action_editTweet_to_tweetsFragment"
             app:destination="@id/tweetsFragment" />
         <argument
             android:name="tweet"
             app:argType="org.izv.di.acl.twitterclone.model.entity.Tweet" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="org.izv.di.acl.twitterclone.view.activity.fragment.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_tweetsFragment"
+            app:destination="@id/tweetsFragment" />
     </fragment>
 </navigation>

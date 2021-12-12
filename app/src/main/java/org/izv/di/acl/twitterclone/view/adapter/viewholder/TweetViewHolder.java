@@ -24,6 +24,5 @@ public class TweetViewHolder extends RecyclerView.ViewHolder {
         ivUserPic = itemView.findViewById(R.id.ivUserPic);
         ivImageDesc = itemView.findViewById(R.id.ivImageDesc);
         ivEdit = itemView.findViewById(R.id.ivOptions);
-
     }
 }
